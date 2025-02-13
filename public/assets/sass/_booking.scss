@@ -1,0 +1,186 @@
+/*********** booking css start *************/
+.booking_part{
+    margin-top: -80px;
+    z-index: 9;
+    position: relative;
+    
+    .booking_menu{
+        background-color: $white_color;
+        padding: 0 35px;
+        @media #{$small_mobile}{
+            padding: 0 20px;
+        }
+        .nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+            color: $heading_color;
+            border-color: transparent;
+            border-bottom: 3px solid transparent;
+            text-transform: capitalize;
+            padding: 28.5px 20px;
+        }
+        .nav-tabs {
+            border-bottom: 0px solid transparent;
+        }
+    }
+    .booking_content{
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 10px 40px 0px rgba(221, 221, 221, 0.3);
+        padding: 40px;
+    }
+    .form-row{
+        display: flex;
+        flex-wrap: wrap; /* Mengatur agar item dapat wrap ke baris baru */
+        gap: 10px; /* Menambahkan jarak antar item */
+        margin-bottom: 10px;
+        .form_colum{
+            flex: 1; /* Mengatur agar item mengisi ruang yang tersedia */
+            min-width: 150px; /* Menentukan lebar minimum item */
+            
+            @media #{$tab}{
+                width: 48%;
+                margin-bottom: 15px;
+            }
+            @media #{$small_mobile}{
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            .nc_select, .gj-datepicker{
+                width: 100%;
+                border-color: #2493e0;
+                border-radius: 0;
+                color: #2493e0;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+               box-sizing: border-box;
+            }
+            
+            .country-code {
+                width: 27% !important;
+              }
+             .input-group {
+                display: flex;
+                width: 100%;
+             }
+              .input-group input {
+                flex: 1;
+                border: 1px solid #2493e0;
+                height: 50px;
+                 color: #2493e0;
+                font-size: 14px;
+                padding-left: 10px;
+              }
+             .input-group .country-code{
+                width: 40% !important; /* Adjust as needed */
+                flex: none;
+              }
+
+
+            .nice-select:after {
+                border-bottom: 2px solid #2493e0;
+                border-right: 2px solid #2493e0;
+                content: '';
+                display: block;
+                height: 8px;
+                width: 8px;
+                right: 18px;
+            }
+            .gj-textbox-md {
+                border: 1px solid #2493e0;
+                padding: 16px;
+                color: #2493e0;
+                font-size: 14px;
+            }
+            .gj-datepicker-md [role=right-icon] {
+                position: absolute;
+                right: 12px;
+                top: 13px;
+                font-size: 24px;
+            }
+            ::placeholder{
+                color: #2493e0;
+            }
+             #rent_days{
+                width: 30% !important;
+                border: 1px solid #2493e0;
+                padding: 16px;
+                 color: #2493e0;
+                 font-size: 14px;
+             }
+        }
+    }
+       .form_btn{
+            flex-basis: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top:15px;
+        }
+    .nav-link.active {
+        border-bottom: 3px solid #2493e0 !important;
+    }
+}
+
+/* Tambahan Styling Form */
+.booking_form .form_colum input[type="text"],
+.booking_form .form_colum input[type="number"],
+.booking_form .form_colum input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 50px;
+    line-height: normal;
+    border: 1px solid #2493e0;
+     color: #2493e0;
+    font-size: 14px;
+}
+
+.booking_form .form_btn .btn_1 {
+  width: auto;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  height: 44px;
+  line-height: normal;
+}
+.booking_form .form-row:nth-child(2){
+    display: flex;
+    gap: 10px
+}
+
+/* Media query untuk layar kecil */
+@media (max-width: 768px) {
+   .booking_form .form-row {
+        flex-direction: column; /* Mengatur agar item tersusun vertikal */
+        align-items: flex-start;
+        
+   }
+   .booking_form .form_row:nth-child(2){
+    display: flex;
+    flex-direction: column;
+  }
+    .booking_form .form_colum,
+    .booking_form .form_btn {
+       min-width: auto; /* Mengizinkan item mengambil lebar yang dibutuhkan */
+   }
+}
+/* Responsive styling for motor type dropdown */
+
+.booking_form #motor_type {
+    background-image: none; /* Remove default arrow icon */
+    padding: 10px;
+    box-sizing: border-box;
+    height: 44px;
+    line-height: normal;
+    border: 1px solid #2493e0;
+     color: #2493e0;
+    font-size: 14px;
+}
+.booking_form #motor_type option {
+    display: flex;
+     align-items: center;
+}
+
+.booking_form #motor_type option img {
+    width: 30px; /* Adjust image size as necessary */
+     height: auto;
+    margin-left: 10px; /* Adjust space between text and image */
+}
