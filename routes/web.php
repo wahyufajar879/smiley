@@ -10,6 +10,10 @@ use App\Http\Controllers\TopPlaceController;
 use App\Http\Controllers\TourDetailsController;
 use App\Http\Controllers\ElementsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SnorklingController;
+
+//Admin
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +35,15 @@ Route::get('/top-place', [TopPlaceController::class, 'index'])->name('top_place'
 Route::get('/tour-details', [TourDetailsController::class, 'index'])->name('tour_details');
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/snorklingtable', [SnorklingController::class, 'index'])->name('snorklingtable');
+
+// ADMIN
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('auth.dashboard');
+})->middleware('auth'); // Hanya bisa diakses setelah login
