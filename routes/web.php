@@ -12,6 +12,11 @@ use App\Http\Controllers\ElementsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SnorklingController;
+use App\Http\Controllers\DataSnorklingController;
+use App\Http\Controllers\DataTicketController;
+use App\Http\Controllers\DataTripController;
+use App\Http\Controllers\DataRentMotorbikeController;
+use App\Http\Controllers\DataBlogController;
 
 //Admin
 
@@ -47,3 +52,24 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', function () {
     return view('auth.dashboard');
 })->middleware('auth'); // Hanya bisa diakses setelah login
+// END ADMIN
+
+// DATA SNORKLING
+Route::resource('data_snorklings', DataSnorklingController::class);
+// END DATA SNORKLING
+
+// DATA Ticket
+Route::resource('data_tickets', DataTicketController::class);
+// END DATA Ticket
+
+// DATA Trip
+Route::resource('data_trips', DataTripController::class);
+// END DATA Trip
+
+// DATA Rent Motorbike
+Route::resource('data_rent_motorbikes', DataRentMotorbikeController::class);
+// END DATA Rent Motorbike
+
+// DATA Blog
+Route::resource('data_blogs', DataBlogController::class);
+// END DATA Blog

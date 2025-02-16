@@ -63,6 +63,18 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-folder"></span><span class="mtext">Data</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('data_snorklings.index') }}">Snorkling</a></li>
+                        <li><a href="{{ route('data_tickets.index') }}">Ticket</a></li>
+                        <li><a href="{{ route('data_trips.index') }}">Trip Island</a></li>
+                        <li><a href="{{ route('data_rent_motorbikes.index') }}">Rent Motorbike</a></li>
+                        <li><a href="{{ route('data_blogs.index') }}">Blog</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-user-2"></span><span class="mtext">Users</span>
                     </a>
                     <ul class="submenu">
