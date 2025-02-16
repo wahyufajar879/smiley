@@ -17,6 +17,10 @@ use App\Http\Controllers\DataTicketController;
 use App\Http\Controllers\DataTripController;
 use App\Http\Controllers\DataRentMotorbikeController;
 use App\Http\Controllers\DataBlogController;
+use App\Http\Controllers\SnorklingOrderController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TripController;
+use App\Http\Controllers\RentController;
 
 //Admin
 
@@ -40,7 +44,7 @@ Route::get('/top-place', [TopPlaceController::class, 'index'])->name('top_place'
 Route::get('/tour-details', [TourDetailsController::class, 'index'])->name('tour_details');
 Route::get('/elements', [ElementsController::class, 'index'])->name('elements');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/snorklingtable', [SnorklingController::class, 'index'])->name('snorklingtable');
+// Route::get('/snorklingtable', [SnorklingController::class, 'index'])->name('snorklingtable');
 
 // ADMIN
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -73,3 +77,25 @@ Route::resource('data_rent_motorbikes', DataRentMotorbikeController::class);
 // DATA Blog
 Route::resource('data_blogs', DataBlogController::class);
 // END DATA Blog
+
+// Snorkling Order
+Route::get('/get-destinations', [SnorklingController::class, 'getDestinations'])->name('get.destinations');
+Route::resource('snorklings', SnorklingController::class);
+// End Snorkling Order
+
+// Ticket Order
+Route::resource('tickets', TicketController::class);
+// Rute untuk mengambil data boat dan time
+Route::get('/get-boats', [TicketController::class, 'getBoats'])->name('get.boats');
+Route::get('/get-times', [TicketController::class, 'getTimes'])->name('get.times');
+// End Ticket Order
+
+// Trip Order
+Route::resource('trips', TripController::class);
+// Rute untuk mengambil data place_to_go
+Route::get('/get-place-to-go', [TripController::class, 'getPlaceToGo'])->name('get.place-to-go');
+// End Trip Order
+
+// Trip Order
+Route::resource('rents', RentController::class);
+// End Trip Order

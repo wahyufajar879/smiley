@@ -30,8 +30,7 @@
                         <span class="micon dw dw-sailboat"></span><span class="mtext">Snorkling</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="{{route('snorklingtable')}}">Data Snorkling</a></li>
-                        <li><a href="advanced-components.html">CRUD Snorkling</a></li>
+                        <li><a href="{{route('snorklings.index')}}">Snorkling</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -39,8 +38,8 @@
                         <span class="micon dw dw-ticket-1"></span><span class="mtext">Ticket</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="form-basic.html">Data Ticket</a></li>
-                        <li><a href="advanced-components.html">CRUD Ticket</a></li>
+                        <li><a href="{{route('tickets.index')}}">Ticket</a></li>
+                        {{-- <li><a href="advanced-components.html">CRUD Ticket</a></li> --}}
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -48,8 +47,8 @@
                         <span class="micon dw dw-school-bus"></span><span class="mtext">Trip Island</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="form-basic.html">Data Trip Island</a></li>
-                        <li><a href="advanced-components.html">CRUD Trip Island</a></li>
+                        <li><a href="{{route('trips.index')}}">Data Trip Island</a></li>
+                        {{-- <li><a href="advanced-components.html">CRUD Trip Island</a></li> --}}
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -57,8 +56,8 @@
                         <span class="micon dw dw-motorcycle"></span><span class="mtext">Rent Motorbike</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="form-basic.html">Data Rent Motorbike</a></li>
-                        <li><a href="advanced-components.html">CRUD Rent Motorbike</a></li>
+                        <li><a href="{{route('rents.index')}}">Data Rent Motorbike</a></li>
+                        
                     </ul>
                 </li>
                 <li class="dropdown">
