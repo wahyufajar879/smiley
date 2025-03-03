@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/plugins/dropzone/src/dropzone.css') }}">
 <div class="pd-20 card-box mb-30">
     <div class="clearfix mb-20">
         <div class="pull-left">
@@ -11,6 +10,9 @@
     <form action="{{ route('data_blogs.update', $dataBlog->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+         @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
         <div class="form-group">
             <label>Date</label>
             <input class="form-control date-picker" type="date" name="date" value="{{ $dataBlog->date }}" required>
@@ -48,7 +50,7 @@
             @enderror
 
             @if($dataBlog->image)
-            <img src="{{ asset('storage/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="100">
+                <img src="{{ asset('storage/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="100">
             @endif
         </div>
 

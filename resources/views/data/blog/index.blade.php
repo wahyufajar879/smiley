@@ -27,7 +27,7 @@
                     <td>{{ $dataBlog->category }}</td>
                     <td>
                         @if($dataBlog->image)
-                            <img src="{{ asset('storage/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="100">
+                            <img src="{{ asset('/blog_images/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="100">
                         @else
                             No Image
                         @endif

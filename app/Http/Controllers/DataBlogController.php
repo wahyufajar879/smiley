@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\DataBlog;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage; // Import Storage facade
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator; // Import Validator facade
+use Illuminate\Support\Str; // Import Str class
 
 class DataBlogController extends Controller
 {
@@ -30,7 +33,7 @@ class DataBlogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'title' => 'required',
             'description' => 'required',
@@ -38,10 +41,30 @@ class DataBlogController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:900000', // Validasi image
         ]);
 
+        if ($validator->fails()) {
+            Log::error('Validation failed: ' . json_encode($validator->errors()));
+            return back()->withErrors($validator)->withInput();
+        }
+
         $imagePath = null;
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/blog_images'); // Simpan gambar ke storage/app/public/blog_images
-            $imagePath = str_replace('public/', '', $imagePath); // Hapus 'public/' dari path
+            $image = $request->file('image');
+            if ($image->isValid()) {
+                Log::info('Image found in request');
+                Log::info('Original file name: ' . $image->getClientOriginalName());
+                Log::info('File size: ' . $image->getSize());
+
+                // Generate nama file yang user-friendly
+                $filename = Str::slug($request->title) . '.' . $image->getClientOriginalExtension();
+
+                // Simpan gambar ke public/blog_images dengan nama yang sudah diubah
+                $imagePath = $image->storeAs('blog_images', $filename, 'public');
+
+                Log::info('Image stored at: ' . $imagePath);
+            } else {
+                Log::error('File upload failed: ' . $image->getErrorMessage());
+                return back()->with('error', 'Upload gambar gagal. Silakan coba lagi.');
+            }
         }
 
         DataBlog::create([
@@ -77,24 +100,43 @@ class DataBlogController extends Controller
      */
     public function update(Request $request, DataBlog $dataBlog)
     {
-        $request->validate([
+         $validator = Validator::make($request->all(), [
             'date' => 'required|date',
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi image
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:900000', // Validasi image
         ]);
+
+         if ($validator->fails()) {
+            Log::error('Validation failed: ' . json_encode($validator->errors()));
+            return back()->withErrors($validator)->withInput();
+        }
 
         $imagePath = $dataBlog->image; // Gunakan gambar yang sudah ada secara default
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
-            if ($dataBlog->image) {
-                Storage::delete('public/' . $dataBlog->image);
+             $image = $request->file('image');
+             if ($image->isValid()) {
+                 // Hapus gambar lama jika ada
+                if ($dataBlog->image) {
+                    Storage::delete($dataBlog->image);
+                }
+                   Log::info('Image found in request');
+                Log::info('Original file name: ' . $image->getClientOriginalName());
+                Log::info('File size: ' . $image->getSize());
+                 // Generate nama file yang user-friendly
+                $filename = Str::slug($request->title) . '.' . $image->getClientOriginalExtension();
+
+                // Simpan gambar ke storage/app/public/blog_images dengan nama yang sudah diubah
+                 $imagePath = $image->storeAs('blog_images', $filename, 'public');
+
+                Log::info('Image stored at: ' . $imagePath);
+             }  else {
+                Log::error('File upload failed: ' . $image->getErrorMessage());
+                return back()->with('error', 'Upload gambar gagal. Silakan coba lagi.');
             }
 
-            $imagePath = $request->file('image')->store('public/blog_images'); // Simpan gambar baru
-            $imagePath = str_replace('public/', '', $imagePath); // Hapus 'public/' dari path
         }
 
         $dataBlog->update([
@@ -116,7 +158,7 @@ class DataBlogController extends Controller
     {
         // Hapus gambar terkait jika ada
         if ($dataBlog->image) {
-            Storage::delete('public/' . $dataBlog->image);
+            Storage::delete($dataBlog->image);
         }
 
         $dataBlog->delete();

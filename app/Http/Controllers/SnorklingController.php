@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Snorkling;
 use App\Models\DataSnorkling; // Import model DataSnorkling
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SnorklingController extends Controller
 {
@@ -97,10 +98,13 @@ class SnorklingController extends Controller
     }
 
     public function getDestinations(Request $request)
-    {
-        $package = $request->input('package');
-        $destinations = DataSnorkling::where('type_package', $package)->pluck('destination');
+{
+    $package = $request->input('package');
+    $destinations = DataSnorkling::where('type_package', $package)->pluck('destination');
 
-        return response()->json($destinations);
-    }
+    Log::info('Package: ' . $package); // Tambahkan ini
+    Log::info('Destinations: ' . json_encode($destinations)); // Tambahkan ini
+
+    return response()->json($destinations);
+}
 }

@@ -4,7 +4,7 @@
 <head>
     <!-- Basic Page Info -->
     <meta charset="utf-8">
-    <title>DeskApp - Bootstrap Admin Dashboard</title>
+    <title>Smiley Dashboard</title>
 
     <!-- Site favicon -->
     <link rel="apple-touch-icon" sizes="180x180"
@@ -82,6 +82,7 @@
     <script src="{{ asset('assets/admin/plugins/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/admin/plugins/datatables/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/admin/plugins/datatables/js/responsive.bootstrap4.min.js') }}"></script>
+    
     <script src="{{ asset('assets/admin/vendors/scripts/dashboard.js') }}"></script>
 
 	<script src="{{asset('assets/admin/plugins/datatables/js/dataTables.buttons.min.js')}}"></script>

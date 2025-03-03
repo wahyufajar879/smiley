@@ -210,7 +210,51 @@ h5 {
 img {
   max-width: 100%;
 }
+.blog_item_img {
+  max-width: 100%; /* Lebar maksimum 100% dari parent */
+  height: 600px; /* Tinggi maksimum container */
+  overflow: hidden; /* Mencegah gambar melebihi batas */
+}
 
+.blog_item_img img {
+  width: 100%; /* Lebar mengisi container */
+  height: 100%; /* Tinggi mengisi container */
+  object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+  object-position: center; /* Memprioritaskan bagian bawah gambar */
+}
+.blog_item_date{
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 20px;
+}
+.popular_post_widget .post_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popular_post_widget .post_item img {
+  width: 80px;  /* Lebar gambar yang diinginkan */
+  height: 80px; /* Tinggi gambar yang diinginkan, bisa dihilangkan jika ingin otomatis */
+  object-fit: cover; /* Penting untuk menjaga aspek rasio dan mengisi area */
+  margin-right: 15px; /* Jarak antara gambar dan teks */
+}
+
+.popular_post_widget .post_item .media-body {
+  overflow: hidden; /* Handle teks yang terlalu panjang */
+}
+
+.popular_post_widget .post_item .media-body h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.popular_post_widget .post_item .media-body p {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 0;
+}
 /* line 122, /Applications/MAMP/htdocs/palash/cl/july 2019/193 Travel/193 travel html/sass/_common.scss */
 a:focus, .button:focus, button:focus, .btn:focus {
   text-decoration: none;

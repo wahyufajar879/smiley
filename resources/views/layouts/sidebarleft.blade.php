@@ -1,6 +1,6 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="{{ route('dashboard') }}">
             <img src="{{ asset('assets/admin/vendors/images/deskapp-logo.svg') }}" alt="" class="dark-logo">
             <img src="{{ asset('assets/admin/vendors/images/deskapp-logo-white.svg') }}" alt=""
                 class="light-logo">
@@ -13,17 +13,10 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
+                    <a href="{{ route('dashboard') }}" class="dropdown-toggle">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                     </a>
-                    <ul class="submenu">
-                        <li><a href="index.html">Dashboard</a></li>
-                    </ul>
-                    {{--
-                    <ul class="submenu">
-                        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-                    </ul>
-                    --}}
+                   
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">

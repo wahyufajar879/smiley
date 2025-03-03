@@ -12,7 +12,7 @@
         <p><strong>Category:</strong> {{ $dataBlog->category }}</p>
         <p><strong>Image:</strong>
             @if($dataBlog->image)
-                <img src="{{ asset('storage/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="200">
+                 <img src="{{ asset('/blog_images/' . $dataBlog->image) }}" alt="{{ $dataBlog->title }}" width="200">
             @else
                 No Image
             @endif

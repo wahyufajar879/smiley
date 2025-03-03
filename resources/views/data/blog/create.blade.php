@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('src/plugins/dropzone/src/dropzone.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/plugins/dropzone/src/dropzone.css') }}">
 <div class="pd-20 card-box mb-30">
     <div class="clearfix mb-20">
         <div class="pull-left">
@@ -10,9 +10,12 @@
     </div>
     <form action="{{ route('data_blogs.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        @if(session('error'))
+            <div class="alert alert-danger">{{ session('error') }}</div>
+        @endif
         <div class="form-group">
             <label>Date</label>
-            <input class="form-control date-picker" type="date" name="date" value="{{ old('date') }}" required>
+            <input class="form-control " type="date" name="date" value="{{ old('date') }}" required>
             @error('date')
             <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -51,7 +54,7 @@
         <a href="{{ route('data_blogs.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 </div>
-<script src="{{ asset('src/plugins/dropzone/src/dropzone.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/dropzone/src/dropzone.js') }}"></script>
 <script>
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({

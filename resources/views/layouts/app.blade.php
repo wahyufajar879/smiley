@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Martine</title>
+    <title>Smiley</title>
     <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
@@ -88,7 +88,7 @@
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="{{route('blog')}}">Blog</a>
-                                            <a class="dropdown-item" href="{{route('singleblog')}}">Single blog</a>
+                                            {{-- <a class="dropdown-item" href="{{route('singleblog')}}">Single blog</a> --}}
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -100,7 +100,7 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                             <a class="dropdown-item" href="{{route('top_place')}}">top place</a>
                                             <a class="dropdown-item" href="{{route('tour_details')}}">tour details</a>
-                                            <a class="dropdown-item" href="{{route('elements')}}">Elements</a>
+                                            {{-- <a class="dropdown-item" href="{{route('elements')}}">Elements</a> --}}
                                         </div>
                                     </li>
                                     <li class="nav-item">
@@ -184,30 +184,30 @@ Copyright ©<script>document.write(new Date().getFullYear());</script> All right
     <!-- footer part end-->
 
 
-    <!-- jquery plugins here-->
-    <script src="{{ asset('assets/js/jquery-1.12.1.min.js') }}"></script>
-    <!-- popper js -->
-    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-    <!-- bootstrap js -->
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <!-- magnific js -->
-    <script src="{{ asset('assets/js/jquery.magnific-popup.js') }}"></script>
-    <!-- swiper js -->
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <!-- masonry js -->
-    <script src="{{ asset('assets/js/masonry.pkgd.js') }}"></script>
-    <!-- masonry js -->
-    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/js/gijgo.min.js') }}"></script>
-    <!-- contact js -->
-    <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.form.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets/js/mail-script.js') }}"></script>
-    <script src="{{ asset('assets/js/contact.js') }}"></script>
-    <!-- custom js -->
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-    @stack('scripts')
+        <!-- jquery plugins here-->
+        <script src="{{ asset('assets/js/jquery-1.12.1.min.js') }}"></script>
+        <!-- popper js -->
+        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
+        <!-- bootstrap js -->
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <!-- magnific js -->
+        <script src="{{ asset('assets/js/jquery.magnific-popup.js') }}"></script>
+        <!-- swiper js -->
+        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+        <!-- masonry js -->
+        <script src="{{ asset('assets/js/masonry.pkgd.js') }}"></script>
+        <!-- masonry js -->
+        <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+        <script src="{{ asset('assets/js/gijgo.min.js') }}"></script>
+        <!-- contact js -->
+        <script src="{{ asset('assets/js/jquery.ajaxchimp.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.form.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('assets/js/mail-script.js') }}"></script>
+        <script src="{{ asset('assets/js/contact.js') }}"></script>
+        <!-- custom js -->
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
+        @stack('scripts')
 
 </body>
 </html>

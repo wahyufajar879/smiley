@@ -1,41 +1,36 @@
 <div class="booking_form">
-    <form action="#">
+    <form action="{{ route('rent_scooter.submit') }}" method="POST">
+        @csrf
         <div class="form-row">
             <div class="form_colum">
-                <input type="text" placeholder="Your Name" >
+                <input type="text" name="name" placeholder="Your Name" required>
             </div>
-            <div class="form_colum">
-                 <div class="input-group">
-                    <select class="nc_select country-code">
-                        <option data-countryCode="ID" value="+62" Selected>Indonesia (+62)</option>
-                        <option data-countryCode="US" value="+1">USA (+1)</option>
-                        <!-- Tambahkan kode negara lain di sini -->
-                    </select>
-                      <input type="number" placeholder="Phone Number"  >
+             <div class="form_colum">
+                <div class="input-group">
+                  
+                      <input type="number"  name="no_phone" placeholder="Phone Number" required>
                 </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form_colum">
-               <input type="date" id="rent_date" placeholder="Rent Date"  >
+               <input type="date" name="date" id="rent_date" placeholder="Rent Date" required>
             </div>
             <div class="form_colum">
-                <select class="nc_select" id="motor_type">
+                <select class="nc_select" name="type_motorbike" id="motor_type" required>
                    <option value="" selected disabled>Motor Type</option>
-                    <option value="scoopy">Scoopy <img src="{{asset('assets/img/scoopy.png')}}" alt="scoopy"></option>
-                     <option value="vario">Vario  <img src="{{asset('assets/img/vario.png')}}" alt="vario"></option>
-                     <option value="nmax">Nmax  <img src="{{asset('assets/img/nmax.png')}}" alt="nmax"></option>
-                     <option value="pcx">PCX  <img src="{{asset('assets/img/pcx.png')}}" alt="pcx"></option>
-                     <option value="adv">ADV  <img src="{{asset('assets/img/adv.png')}}" alt="adv"></option>
+                    @foreach($dataRentMotorbikes as $dataRentMotorbike)
+                        <option value="{{ $dataRentMotorbike->type_motorbike }}">{{ $dataRentMotorbike->type_motorbike }}</option>
+                    @endforeach
                 </select>
             </div>
              <div class="form_colum">
-                <input type="number" placeholder="Rent Days" id="rent_days"  >
+                <input type="number" name="rent_day" placeholder="Rent Days" id="rent_days" required>
             </div>
         </div>
           <div class="form-row">
             <div class="form_btn">
-                <a href="#" class="btn_1">Book Now</a>
+                <button type="submit" class="btn_1">Book Now</button>
             </div>
         </div>
     </form>
